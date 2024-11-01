@@ -1,46 +1,37 @@
 #include <stdio.h>
-
-// int main(void)
-// {
-//     int x;
-
-//     printf("点数(1〜10)を入力： "); scanf("%d", &x);
-//     if(8<=x) printf("合格\n");
-//     else //if(x<8)
-//     {
-//         printf("不合格\n");
-//         printf("復習して再チャレンジしましょう\n");
-//     }
-//     return 0;
-// }
-
-
-// int main(void)
-// {
-//     int score;
-
-//     printf("点数を入力してください： ");
-//     scanf("%d", &score);
-
-//     if(score<90)
-//     if(score<70) printf("もっと頑張ろう\n");
-//     else printf("OKです\n");
-//     else printf("すばらしい\n");
-
-//     return 0;
-// }
-
+#include <math.h>
 
 int main(void) {
-    int x;
+    char name[20];
+    int age;
+    float height, weight, bmi;
 
-    printf("10と比較したい数を、整数で入力してください： ");
-    scanf("%d", &x);
+    printf("名前を入力してください：");
+    scanf("%s", name);
+    printf("%sさんの年齢を入力してください：", name);
+    scanf("%d", &age);
+    printf("%sさんの身長を入力してください：", name);
+    scanf("%f", &height);
+    printf("%sさんの体重を入力してください：", name);
+    scanf("%f", &weight);
 
-    printf("\n「10 == %d」式の値は %d\n", x, 10 == x);
-    printf("「10 != %d」式の値は %d\n", x, 10 != x);
-    printf("「10 > %d」式の値は %d\n", x, 10 > x);
-    printf("「10 < %d」式の値は %d\n", x, 10 < x);
+    bmi = weight * 10000 / pow(height,2);
+
+    printf("\n*****\n");
+    printf("%sさんは%d歳、身長%.1fcm、体重%.1fkgですね\n", name, age, height, weight);
+    printf("%sさんの肥満度指数は %.1f です\n", name, bmi);
+
+    if(bmi >= 30.0) {
+        printf("%sさんは [太り過ぎ] です\n", name);
+    } else if(bmi >= 25.0) {
+        printf("%sさんは [太りぎみ] です\n", name);
+    } else if(bmi >= 18.5) {
+        printf("%sさんは [ 標 準 ] です\n", name);
+    } else if(bmi >= 16.0) {
+        printf("%sさんは [やせぎみ] です\n", name);
+    } else {
+        printf("%sさんは [やせ過ぎ] です\n", name);
+    }
 
     return 0;
 }
